@@ -1,0 +1,96 @@
+h1{ 
+    color: rgb(139, 139, 182); 
+    text-align: center; 
+    display: block; 
+    margin-top: 50px;
+    font-size: 50px;
+}
+
+#slogan{
+    color: rgb(5, 5, 3); 
+    text-align: center; 
+    font-size: 48px;
+    margin-top: 50%;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(172, 189, 140);
+}
+
+.cabecalho-cont{ 
+    width: 100%;
+    text-align: center; 
+    display: block;
+    margin-top: 0px;
+
+}
+a{
+    padding: 20px;
+    font-size: 25px;
+    color: black;
+}
+
+.redes-sociais{
+    
+        width: 5%;
+        height: 5%;
+        text-align:right;
+        
+    }
+.rd-cont{
+    text-align: right;
+}
+
+.form-add{
+    text-align: center;
+   
+}
+
+.form{
+    box-align: center;
+    color: darkslateblue;
+    width: 200px;
+}
+h2{
+    text-align: center;
+    color: darkslateblue;
+
+}
+imput{
+    float: right;
+}
+
+.foto-colchao{
+    width: 50px;
+    height: 50px;
+    display: inline-table;
+
+}
+
+td{
+    width: 60px;
+    height: 50px;
+    margin: 50px;
+    padding: 50px;
+}
+th{
+    text-align: center;
+    color: darkslateblue;
+
+}
+
+ul{
+    text-align: center;
+    font-size: 24px;
+    margin: 100px;
+    
+}
+footer{
+    margin-top: 80%;
+}
+
+.rodape{
+    text-align: right;
+}

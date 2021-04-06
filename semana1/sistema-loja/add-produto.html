@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Adicionar Produto</title>
+    <link rel="stylesheet" href="style.css" class="css">
+    <title>Adcionar Produto</title>
 </head>
 <body>
     <div>
-        <p>Nome da lojinha</p>
+        <p>Juh Store</p>
     </div>
     
-    <div>
+    <div class ="cabecalho-cont">
         <a href="./index.html">Página Inicial</a>
         <a href="./ctrl-estoque.html">Controle de Estoque</a>
         <a href="./add-produto.html">Adicionar Produto</a>
@@ -20,25 +21,25 @@
 
     
     <h2>Adicionar Produto</h2>
-    <form action="">
-        <div>
+    <form id= "formulario" action="">
+        <div class="form">
             <label for="link-foto">Link para foto: </label>
             <input type="url" id="link-foto" name="link-foto">
         </div>
         
-        <div>
+        <div class="form">
             <label for="descricao">Descrição do produto: </label>
             <!-- Adicione o id apropriado para o input abaixo -->
             <input type="text" id="name" name="descrição">
         </div>
         
-        <div>
+        <div class="form">
             <label for="preco">Preço (em R$): </label>
             <!-- Adicione o id apropriado e o type para receber números abaixo -->
             <input type="number" id="preço" name="preço">
         </div>
         
-        <div>
+        <div class="form">
             <!-- Preencha as propriedades necessárias para os elementos abaixo -->
             <label>Quantidade disponível: </label>
             <input type="number" id="quantidade" name="quantdade disponivel">
@@ -50,6 +51,16 @@
         </div>
 
     </form>
-
+    <footer>
+        <div>
+            <p class="rodape">Siga-nos nas redes sociais!</p>
+    
+            <div class= "rd-cont">
+                <img class="redes-sociais" src="https://image.flaticon.com/icons/png/512/25/25305.png"/>
+                <img class="redes-sociais" src="https://image.flaticon.com/icons/png/512/25/25425.png"/>
+                <img class="redes-sociais" src="https://image.flaticon.com/icons/png/512/8/8800.png"/>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
