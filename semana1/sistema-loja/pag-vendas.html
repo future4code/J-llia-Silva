@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Vendas</title>
+    <link rel="stylesheet" href="style.css" class="css">
+</head>
+<body>
+    <div>
+        <h1>Juh Store</h1>
+        
+    </div>
+    
+    <div class ="cabecalho-cont">
+        <a href="./index.html">Página Inicial</a>
+        <a href="./ctrl-estoque.html">Controle de Estoque</a>
+        <a href="./add-produto.html">Adicionar Produto</a>
+        <a href="./funcionarios.html">Funcionários</a>
+        <a href="./pag-vendas.html">Página de Vendas</a>
+        <a href="./hitorico-vendas.html">Hitórico de Vendas</a>
+    </div>
+
+    <h2> Pedido de Venda</h2>
+
+    <div class="corpo">
+        <fieldset class="vendedor">
+            <div>
+                <label> Vendedor </label>
+                <input type="text" class="nomeDoVendedor">
+                <label> Código do Vendedor</label>
+                <input type="text" class="codigodoVendedor">
+            </div>
+            
+        </fieldset>
+        <fieldset class="cliente">
+            <div>
+                <label> Nome do Cliente</label>
+                <input type="text" class="nomeDoCliente">
+                <label> CPF</label>
+                <input type="number" class="cpf">
+            </div>
+        </fieldset>
+    <fieldset class="entrega">
+        <div>
+            <label> Endereço</label>
+            <input type="text" class="endereçoDoCliente">
+    
+        </div>
+    </fieldset>
+
+<fieldset class="Produto">
+    <div>
+        <label> Produto</label>
+        <select name="Colchao" id="colhoes" class="produtos">
+        <option selected disabled value="">Escolha</option>
+        <option>Violeta</option>
+        <option>Camomile</option>
+        <option>Maya</option>
+        <option>Alecrim</option>
+        <option>Girassol</option>
+    </select>
+    </div>
+
+    <div>
+        <label> Tamanho</label>
+        <select name="Colchao" id="colhoes" class="produto">
+        <option selected disabled value="">Escolha</option>
+        <option>Casal 1.38x1.88</option>
+        <option>Solteirão 0.88x1.88</option>
+       
+    </select>
+    </div>
+</fieldset>
+<fieldset>
+    <label>Pagamento</label>
+    <label>
+    <input type="radio" name= "pagamento"> À Vista
+    </label>
+    <label>
+        <input type="radio" name= "pagamento"> Boleto
+        </label>
+        <label>
+            <input type="radio" name= "pagamento"> Cartão
+            </label>
+</fieldset>
+
+<div class="obs">
+    <label> Observações</label>
+    <textarea row="10"></textarea>
+</div>
+<div>
+    <button type: submit> Enviar Pedido </button>
+</div>
+    </div>
+    <footer class="rodape"> 
+        <div>
+            <p >Siga-nos nas redes sociais!</p>
+    
+            <div class= "rd-cont">
+                <img class="redes-sociais" src="https://image.flaticon.com/icons/png/512/25/25305.png"/>
+                <img class="redes-sociais" src="https://image.flaticon.com/icons/png/512/25/25425.png"/>
+                <img class="redes-sociais" src="https://image.flaticon.com/icons/png/512/8/8800.png"/>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
