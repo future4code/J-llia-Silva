@@ -1,0 +1,152 @@
+*{
+    margin: 0;
+    padding: 0;
+   text-align: center;
+   background-color: #ffffff;
+    }
+   main{
+       height: auto;
+       width: 800px;
+       margin: auto;
+   }
+.sobre-mim{
+    display: inline-block;
+    width: auto;
+}
+.perfil{
+    width: 500px;
+    height: 500px;
+    display: inline;
+    margin-top: 100px;
+}
+h1{
+    font-size: 50px;
+    background-color:#fbfbfc;
+    color: black;
+    margin-top: 50px;
+}
+h2{
+    margin-top: 50px;
+    }
+.habilidades{
+    background-color: #4070d9;
+    color: white;
+    width: 150px;
+    height: 130px;
+    border-radius:50px;
+    margin: 20px;
+    font-size: 22px;
+    border-color: white;
+}
+.cont-habilidades{
+    display: inline-block;
+    }
+
+.habilidades:hover{
+    background-color: rgb(25, 2, 129);
+}
+
+#titulos{
+    color: #4070d9;
+    font-size: 50px;
+    margin-bottom: 100px;
+}
+.cont-formacao{  
+    background-color: #4070d9;
+    height: 50vh;
+    display: inline-block;
+    margin-top: 50px;
+    }
+.cont-profissionais{
+    margin-top: 50px;
+    background-color: #4070d9;
+    height: 40vh;
+    display: inline-block;
+}
+ul, ol, p{
+    background-color: #4070d9;
+    color: #fbfbfc;
+    margin-top: 10px;
+    font-size: 25px;
+}
+ul{
+    font-size: 35px;
+    text-align: left;
+    margin-left: 50px;
+
+}
+.cabecalho-cont{
+    margin-top: 10px;
+    height: auto;
+    position: fixed;
+    position: relative;
+
+}
+.cabecalho{
+    color:white;
+    background-color: #4070d9;
+    font-size: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;
+    
+}
+footer{
+    background-color: #4070d9;
+    height:90px;
+    width:100%;
+    margin-top: 50px;
+    display:block;
+}
+.logo{
+    width: 90px;
+    height: auto;
+    background-color: #4070d9;
+    padding-left: 30px;
+}
+    
+.cabecalho:hover{
+    background-color: rgb(25, 2, 129);
+}
+input,h4{
+    display:block;
+    font-size: 30px;
+    height: 100px;
+    margin: auto ;
+    width: 550px;
+}
+.logog{
+width: 150px;
+height: auto;
+display: inline-block;
+margin: auto;
+padding: 20px;
+
+}
+.contato{
+    background-color: #4070d9;
+    height: 100vh;
+}
+.cont-contato{
+    margin-top: 200px;
+    color: #4070d9;
+}
+h4{
+    padding-top: 25px;
+}
+#enviar{
+    display: block;
+    margin: auto;
+    background-color: #4070d9;
+    width: 80px;
+    height: 35px;
+    color: #ffffff;
+    font-size: 20px;
+}
+#enviar:hover{
+    background-color: rgb(25, 2, 129);
+}
+.proj{
+  
+    margin: 200px;
+}
