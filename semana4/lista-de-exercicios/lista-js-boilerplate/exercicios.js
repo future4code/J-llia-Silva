@@ -81,7 +81,7 @@ function retornaNNumerosPares(n) {
    // implemente sua lógica aqui
    const nNumerosPares = []
 
-   for (let i = 0; i < n; i++) {
+   for (let i = 0; nNumerosPares.length < n; i++) {
 
       if (i % 2 === 0) {
          nNumerosPares.push(i)
@@ -95,16 +95,43 @@ function retornaNNumerosPares(n) {
 
 function checaTriangulo(a, b, c) {
    // implemente sua lógica aqui
-   if(a === b && a===c){
-
-   }(a === b || a===c ||b===c)
+   if (a === b && a === c) {
+      return "Equilátero"
+   } else if (a === b || a === c || b === c) {
+      return "Isósceles"
+   } else {
+      return "Escaleno"
+   }
 }
 
 // Exercício 9
 
 function comparaDoisNumeros(num1, num2) {
    // implemente sua lógica aqui
+   let maiorNumero
+   let menorNumero
+   let diferencaEntreNumeros
+
+   if (num1 > num2) {
+      maiorNumero = num1
+      menorNumero = num2
+
+   } else {
+      maiorNumero = num2
+      menorNumero = num1
+   }
+   return maiorNumero
+
+} if (maiorNumero % menorNumero === 0) {
+   return "o numero maior é divisível pelo numero menor"
+} else {
+   return "o numero maior é divisível pelo numero menor"
 }
+
+if (maiorNumero - menorNumero >= 0) {
+
+}
+
 
 // Exercício 10
 
