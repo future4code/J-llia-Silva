@@ -1,0 +1,14 @@
+
+.bigcard-container > img {
+    width: 70px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.perfil{
+    display: flex;
+    padding-bottom: 5%;
+    width:30vw;
+    height: auto;
+    margin: auto;
+}
