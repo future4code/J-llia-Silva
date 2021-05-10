@@ -3,6 +3,8 @@ import './App.css';
 import DadosGerais from './formularios/dadosGerais';
 import ComGraduacao from './formularios/comGraduacao';
 import SemGraduacao from './formularios/semGrasuacao';
+import Fim from './formularios/fim';
+
 import React from 'react';
 
 
@@ -13,11 +15,11 @@ export default class App extends React.Component {
   };
   trocaDePagina= ()=>{
     if(this.state.pagina==="primeiraPagina"){
-      this.setState({pagina: "DadosGerais"});
+      this.setState({pagina: "segundaPagina"});
     }else if (this.state.pagina==="segundaPagina"){
-      this.setState({pagina: "ComGraduacao"});
+      this.setState({pagina: "terceiraPagina"});
     }else if (this.state.pagina==="terceiraPagina"){
-      this.setState({pagina: "SemGraduacao"});
+      this.setState({pagina: "fim"});
     }
   }
   render(){  
@@ -28,11 +30,14 @@ export default class App extends React.Component {
         return<ComGraduacao trocaDePagina={this.trocaDePagina}/>;
       }else if (this.state.pagina==="terceiraPagina"){
         return<SemGraduacao trocaDePagina={this.trocaDePagina}/>;
+      }else {
+        return <Fim trocaDePagina={this.trocaDePagina}/>
       }
     } 
 
     return (
     <div className="App">
+      
     {renderizarPagina()}
     </div>
   );
