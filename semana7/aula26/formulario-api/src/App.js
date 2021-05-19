@@ -1,92 +1,49 @@
-
 import './App.css';
-import axios from 'axios'
-import Styled from 'styled-components'
 import React from 'react'
-import ListaDeUsuario from './Componentes/ListaDeUsuarios'
 import Cadastro from './Componentes/Cadastro';
+import ListaDeUsuarios from './Componentes/ListaDeUsuarios';
+import styled from 'styled-components'
 
-const header = {
-    headers:{ Authorization: "jullia-izidorio-paiva"}   
-   
-};
+const Head = styled.div`
+background-color:#FF6C37;
+display:flex;
+justify-content:space-around;
+align-items:center;`
 
-const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users"
-            //https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users//
+const Botao = styled.button`
+color: black;
+background-color:transparent;
+border-color: white;
+height:5vh;
+border-radius:2px 5px;`
 
-
+const Body = styled.body`
+display:flex;
+justify-content:center;
+text-align:center;`
 
 export default class App extends React.Component {
     state = {
-        listaDeUsuarios: [],
-        inputName: "",
-        inputEmail: "",
         pagina: true
     }
     trocaDePaginas = () => {
         this.setState({ pagina: !this.state.pagina })
     }
-    componentDidMount(){
-        this.buscaUsuarios();
-    }
-    //--------------IMPUTS CONTROLADOS ----------------------//
-
-    handleName = (event) => {
-        this.setState({ inputName: event.target.value })
-
-    }
-    handleEmail = (event) => {
-        this.setState({ inputEmail: event.target.value })
-    }
-    
-    //----------------------API------------------------------//
-
-    buscaUsuarios = () => {
-        axios
-            .get(url, header)
-            .then((certo) => {
-                this.setState({ listaDeUsuarios: certo.data})
-                alert("deu certo amg!!!!!")
-            })
-            .catch((errado) => {
-               alert("deu ruim!")
-            })
-
-    }
-    novoUsuario = () => {
-
-        const body = {
-            name: this.state.inputName,
-            email: this.state.inputEmail
-        };
-
-        axios
-            .post(url, body, header)
-            .then(() => {
-                alert("Usuário cadastrado com sucesso!")
-                this.buscaUsuarios();
-            })
-            .catch(() => {
-                alert("Oop´s! Algo deu errado :'(")
-            })
-
-    }
-
-    //-------------------------FIM DO API-----------------------//
 
     render() {
-        const novoUsuario = this.state.listaDeUsuarios.map((novo) => {
-                return <ListaDeUsuario usuario={novo.name}/>
-           });
-        console.log(this.state.listaDeUsuarios)
 
         return (
-            <div className="App">
-                <h1>Labenusers</h1>
-                <button onClick={this.trocaDePaginas}>Trocar Página</button>
-
-                {this.state.pagina ? <Cadastro /> : {novoUsuario}}
-
+            <div>
+                <Head>
+                    <h1>Labenusers</h1>
+                    <Botao onClick={this.trocaDePaginas}>
+                        {this.state.pagina ? 'Ir para lista' : 'Voltar ao Cadastro'}
+                    </Botao>
+                </Head>
+                <hr></hr>
+                <Body>
+                {this.state.pagina ? <Cadastro /> : <ListaDeUsuarios />}
+                </Body>
             </div>
         );
     }
