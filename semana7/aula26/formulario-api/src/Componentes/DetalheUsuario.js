@@ -17,9 +17,7 @@ const Delete = styled.button`
     background-color: #FF6C37;
     color: rgb(255, 255, 255);
     border-color: transparent;
-    border-radius: 5px;
-`
-
+  `
 const header = {
     headers: {
         Authorization: "jullia-izidorio-paiva"
@@ -29,11 +27,10 @@ const header = {
 const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users"
 
 
-export default class ListaDeUsuarios extends React.Component {
+export default class Detalhes extends React.Component {
     state = {
         listaDeUsuario: [],
-        pagDetalhes: true
-    }
+          }
 
     componentDidMount() {
         this.buscaUsuarios();
@@ -69,17 +66,15 @@ export default class ListaDeUsuarios extends React.Component {
     }
 
     //--------------DESAFIOS-------------------//
-    mostraDetalhes = () =>{
-        this.setState({pagDetalhes: !this.state.pagDetalhes})
-    }
-
+   
     render() {
 
-        const usuarios = this.state.listaDeUsuario.map((usu) => {
-            return <Lista key={usu.id} >
-                {usu.name}
-                <button onClick={this.mostraDetalhes}>Mostrar Detalhes</button>
-                <Delete onClick={() => this.deletarUsuario(usu.id)}>DEL</Delete>
+        const det = this.state.listaDeUsuario.map((detusu) => {
+            return <Lista key={detusu.id}>
+                {detusu.name}
+                {detusu.email}
+                <Delete onClick={() => this.deletarUsuario(detusu.id)}>DEL</Delete>
+                <button>Voltar</button>
             </Lista>
         })        
 
@@ -87,12 +82,7 @@ export default class ListaDeUsuarios extends React.Component {
         //------------------JSX----------------//
         return (
             <div>
-                
-            <h2>{this.state.pagDetalhes?"Lista de Usuários":"Detalhes do Usuário"}</h2>
-           
-            {this.state.pagDetalhes? usuarios:<Detalhe/>
-            }
-                
+              {det}
             </div>
         );
     }
