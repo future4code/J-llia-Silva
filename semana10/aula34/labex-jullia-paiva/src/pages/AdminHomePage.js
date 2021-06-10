@@ -5,12 +5,10 @@ import { Titulo, Body, CardContainer, Main } from '../Componentes/Styled'
 import Cards from '../Componentes/Card'
 
 const AdminHomePage = () => {
+
     const history = useHistory()
     const goTonew = () => {
         history.push("/CreateTripPages")
-    }
-    const goToDetails = () => {
-        history.push("/TripDetailsPage")
     }
     return (
         <Body>
@@ -18,30 +16,9 @@ const AdminHomePage = () => {
                 <h1>AdminHomePage</h1>
                 <BotaoBack />
             </Titulo>
-            <Main>
 
-                <CardContainer>
-                    <Cards />
-                    <button onClick={goToDetails}>Detalhes</button>
-                </CardContainer>
-
-                <CardContainer>
-                    <Cards />
-                    <button onClick={goToDetails}>Detalhes</button>
-                </CardContainer>
-
-                <CardContainer>
-                    <Cards />
-                    <button onClick={goToDetails}>Detalhes</button>
-                </CardContainer>
-                
-                <CardContainer>
-                    <Cards />
-                    <button onClick={goToDetails}>Detalhes</button>
-                </CardContainer>
-
-            </Main >
-
+            <Cards />
+            
             <button onClick={goTonew}>Criar Nova</button>
 
 

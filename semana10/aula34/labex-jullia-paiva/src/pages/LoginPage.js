@@ -1,14 +1,30 @@
 import React from 'react'
 import BotaoBack from '../Componentes/BotaoBack'
 import { useHistory } from 'react-router-dom'
-import { Titulo, Body,Form, Input } from '../Componentes/Styled'
+import { Titulo, Body, Forms, Input } from '../Componentes/Styled'
+import { BASE_URL } from '../constantes/url'
+import axios from 'axios'
+import useInput from '../hooks/useInput'
 
 const LoginPage = () => {
 
+    const [email, handleEmail] = useInput("");
+    const [password, handlePassword] = useInput("");
+
     const history = useHistory()
-    const goToAdm = () => {
-        history.push("/AdminHomePage")
-    }
+
+    const Login = () => {
+        const body = { email, password };
+
+        axios
+            .post(`${BASE_URL}/login`, body)
+            .then((res) => {
+                localStorage.setItem("token", res.data.token);
+                history.push("/AdminHomePage");
+            })
+            .catch((err) => alert(err.response.data.message));
+    };
+
     return (
         <Body>
             <Titulo>
@@ -16,12 +32,23 @@ const LoginPage = () => {
                 <BotaoBack />
             </Titulo>
 
-            <Form>
-                <Input placeholder="Nome"></Input>
-                <Input placeholder="Senha"></Input>
-            </Form>
+            <Forms>
+                <Input
+                    value={email}
+                    onChange={handleEmail}
+                    placeholder="Email">
 
-            <button onClick={goToAdm}>Entrar</button>
+                </Input>
+
+                <Input
+                    value={password}
+                    onChange={handlePassword}
+                    placeholder="Senha">
+
+                </Input>
+            </Forms>
+
+            <button onClick={Login}>Entrar</button>
         </Body>
     )
 }

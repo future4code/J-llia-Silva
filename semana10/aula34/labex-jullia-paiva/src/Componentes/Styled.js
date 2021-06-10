@@ -54,10 +54,8 @@ align-items:center;
 width:25vw;
 height:40vh;`
 
-export const Form = styled.form`
+export const Forms = styled.form`
 display:grid;
-gap:5%;
-margin:auto;
 `
 export const Input = styled.input`
 display :flex;
