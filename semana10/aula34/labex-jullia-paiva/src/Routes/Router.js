@@ -28,7 +28,7 @@ const Rotas = () => {
                     <LoginPage />
                 </Route>
 
-                <Route exact path="/TripDetailsPage">
+                <Route exact path="/TripDetailsPage/:id">
                     <TripDetailsPage />
                 </Route>
 

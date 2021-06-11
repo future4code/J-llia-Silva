@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
 import { Titulo, Body, Main } from '../Componentes/Styled'
+import useControlPages from '../hooks/useControlPages';
 
 const ButtonAdm = styled.button`
 border-radius:100px;
@@ -25,14 +26,15 @@ font-size: 2em;
 `
 
 const Home = () => {
+  
     const history = useHistory()
     console.log(history)
 
     const goToListTrip = () => {
         history.push("/ListTripsPage")
     }
-    const goToLogin = () => {
-        history.push("/LoginPage")
+    const goToAdmin = () => {
+        history.push("/AdminHomePage")
     }
     return (
         <Body>
@@ -40,7 +42,7 @@ const Home = () => {
             <Titulo><h1>Labex</h1></Titulo>
 
             <Main>
-                <ButtonAdm onClick={goToLogin}>Área Adm</ButtonAdm>
+                <ButtonAdm onClick={goToAdmin}>Área Adm</ButtonAdm>
                 <ButtonUsu onClick={goToListTrip}>Lista de Viagens</ButtonUsu>
             </Main>
         </Body>

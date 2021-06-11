@@ -14,6 +14,9 @@ const LoginPage = () => {
     }
 
     const history = useHistory()
+    const gotoHome=()=>{
+        history.push("/")
+    }
 
     const Login = (event) => {
         event.preventDefault()
@@ -32,7 +35,9 @@ const LoginPage = () => {
         <Body>
             <Titulo>
                 <h1>Login</h1>
-                <BotaoBack />
+                <button onClick={gotoHome}>
+                    Voltar
+                </button>
             </Titulo>
 
 

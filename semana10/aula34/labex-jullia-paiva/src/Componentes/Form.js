@@ -1,37 +1,68 @@
-import react from 'react'
-import { Form } from './Styled'
+
 import axios from 'axios'
 import { BASE_URL } from '../constantes/url'
-import { info } from 'autoprefixer'
 import {  useState } from 'react'
+import { Header } from '../constantes/header'
 
 const Formulario =()=>{
     const [trip, setTrip] = useState([])
+    const [form, setForm]=useState({name:"", age:"", applicationText:"",profession:"",country:""  })
 
-
-    const getTrips = () => {
-        axios.get(`${BASE_URL}/trips`)
-            .then((res) => {
-                setTrip(res.data.trips)
-            })
-            .catch((err) => {
-                alert(err.response.data.message)
-            })
+    const onChange=(e)=>{
+        const{name, value}=e.target
+        setForm({...form, [name]:value})
     }
-    const tripMapeada = trip.map((infoCard) => {
-        return <li>{infoCard.name}</li>
-    })
+    const applyToTrip=(e)=>{
+        e.preventDefault()
+        const id = "CXRdYh9IVCViFDpLTLyE"
+        axios.post(`${BASE_URL}/trips/${id}/apply`, form, Header)
+        .then((res) => {
+            alert("Inscrição efetuada com sucesso")
+        })
+        .catch((err) => {
+            alert(err.response.data.message)
+        })
+
+    }    
+  
     return(
      <div>
-        <select>Escolha uma Viagem
-            <option>{tripMapeada}</option>
-        </select>
-        <input placeholder= "Nome"></input>
-        <input placeholder= "Idade"></input>
-        <input placeholder= "Texto de Candidatura"></input>
-        <input placeholder= "Profissão"></input>
-       
-        <select></select>
+        
+        <form onSubmit={applyToTrip}>
+        <input placeholder= "Nome"
+       name="name"
+        value={form.name}
+        onChange={onChange}
+        required
+        ></input>
+        
+        <input placeholder= "Idade"
+        type="number"
+        name="age"
+        value={form.age}
+        onChange={onChange}
+        ></input>
+
+        <input placeholder= "Texto de Candidatura"
+        name="applicationText"
+        value={form.applicationText}
+        onChange={onChange}
+        ></input>
+
+        <input placeholder= "Profissão"
+        name="profession"
+        value={form.profession}
+        onChange={onChange}
+        ></input>
+
+        <input placeholder= "País"
+        name="country"
+        value={form.pcountry}
+        onChange={onChange}
+        ></input>
+          
+        <button>Increver-se</button>
+        </form>
       </div>
     )
 }

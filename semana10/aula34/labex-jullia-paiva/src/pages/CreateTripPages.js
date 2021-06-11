@@ -4,9 +4,10 @@ import { BASE_URL } from '../constantes/url'
 import { Header } from '../constantes/header'
 import BotaoBack from '../Componentes/BotaoBack'
 import { Titulo, Body, Forms, Input } from '../Componentes/Styled'
-
+import useControlPages from '../hooks/useControlPages'
 
 const CreateTripPages = () => {
+    useControlPages();
 
     const [form, setform] = useState({ name: "", planet: "", date: "", description: "", durationInDays: "" })
 
