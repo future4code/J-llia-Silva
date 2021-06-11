@@ -3,6 +3,7 @@ import BotaoBack from '../Componentes/BotaoBack'
 import { useHistory } from 'react-router-dom'
 import { Titulo, Body, CardContainer, Main } from '../Componentes/Styled'
 import Cards from '../Componentes/Card'
+import Button from '@material-ui/core/Button';
 
 const AdminHomePage = () => {
 
@@ -19,7 +20,7 @@ const AdminHomePage = () => {
 
             <Cards />
             
-            <button onClick={goTonew}>Criar Nova</button>
+            <Button variant="contained" color="primary" onClick={goTonew}>Criar Nova</Button>
 
 
         </Body >

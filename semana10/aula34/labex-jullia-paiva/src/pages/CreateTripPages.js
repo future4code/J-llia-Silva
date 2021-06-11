@@ -1,27 +1,29 @@
 import axios from 'axios'
-import React from 'react'
+import React, { useState } from 'react'
 import { BASE_URL } from '../constantes/url'
 import { Header } from '../constantes/header'
 import BotaoBack from '../Componentes/BotaoBack'
 import { Titulo, Body, Forms, Input } from '../Componentes/Styled'
-import useInput from '../hooks/useInput'
+
 
 const CreateTripPages = () => {
 
-    const [name, setNome] = useInput("");
-    const [planet, setplaneta] = useInput("");
-    const [date, setData] = useInput();
-    const [description, setDescriao] = useInput("");
-    const [durationInDays, setDuracao] = useInput();
+    const [form, setform] = useState({ name: "", planet: "", date: "", description: "", durationInDays: "" })
+
+    const onChange=(e)=>{
+        const  {name, value}=e.target
+        setform({...form, [name]: value})
+    }
+
 
     const creatNewTrip = () => {
-        const body = { name, planet, date, description, durationInDays }
-        axios.post(`${BASE_URL}/trips`, body, Header)
+        axios.post(`${BASE_URL}/trips`, form, Header)
             .then((res) => {
-                console.log(res)
+                alert("Viagem Criada com Sucesso!")
+
             })
             .catch((err) => {
-                console.log(err.response.data.message)
+                alert(err.response.data.message)
             })
     }
     return (
@@ -31,35 +33,49 @@ const CreateTripPages = () => {
                 <BotaoBack />
             </Titulo>
 
-            <Forms>
-                <Input
+            <form>
+                <input
+                    name="name"
                     placeholder="Nome"
-                    value={name}
-                    onChange={setNome}>
-                </Input>
+                    value={form.name}
+                    onChange={onChange}
+                    required>
+                </input>
 
-                <Input placeholder="Planeta"
-                    value={planet}
-                    onChange={setplaneta}
-                ></Input>
+                <input
+                    name="planet"
+                    placeholder="Planeta"
+                    value={form.planet}
+                    onChange={onChange}
+                    required
+                ></input>
 
-                <Input placeholder="Data"
-                    value={date}
-                    onChange={setData}
-                ></Input>
+                <input
+                    name="date"
+                    type="date"
+                    placeholder="Data"
+                    value={form.date}
+                    onChange={onChange}
+                    required
+                ></input>
 
-                <Input placeholder="Descrição"
-                    value={description}
-                    onChange={setDescriao}
-                ></Input>
+                <input
+                    name="description"
+                    placeholder="Descrição"
+                    value={form.description}
+                    onChange={onChange}
+                    required
+                ></input>
 
-                <Input placeholder="Duração"
-                    value={durationInDays}
-                    onChange={setDuracao}
-                ></Input>
-            </Forms>
-
-            <button onClick={creatNewTrip}>Cadastrar</button>
+                <input
+                    name="durationInDays"
+                    placeholder="Duração"
+                    value={form.durationInDays}
+                    onChange={onChange}
+                    required
+                ></input>
+                <button variant="contained" color="primary" onClick={creatNewTrip}>Cadastrar</button>
+            </form>
 
         </Body>
     )

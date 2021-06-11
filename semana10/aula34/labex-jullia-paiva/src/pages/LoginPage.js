@@ -1,23 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import BotaoBack from '../Componentes/BotaoBack'
 import { useHistory } from 'react-router-dom'
 import { Titulo, Body, Forms, Input } from '../Componentes/Styled'
 import { BASE_URL } from '../constantes/url'
 import axios from 'axios'
-import useInput from '../hooks/useInput'
 
 const LoginPage = () => {
+    const [form, setForm] = useState({ email: "", password: "" })
 
-    const [email, handleEmail] = useInput("");
-    const [password, handlePassword] = useInput("");
+    const onChange = (e) => {
+        const { name, value } = e.target
+        setForm({ ...form, [name]: value })
+    }
 
     const history = useHistory()
 
-    const Login = () => {
-        const body = { email, password };
+    const Login = (event) => {
+        event.preventDefault()
+
 
         axios
-            .post(`${BASE_URL}/login`, body)
+            .post(`${BASE_URL}/login`, form)
             .then((res) => {
                 localStorage.setItem("token", res.data.token);
                 history.push("/AdminHomePage");
@@ -32,23 +35,36 @@ const LoginPage = () => {
                 <BotaoBack />
             </Titulo>
 
-            <Forms>
-                <Input
-                    value={email}
-                    onChange={handleEmail}
-                    placeholder="Email">
 
-                </Input>
+            <form onSubmit={Login}>
+                <input
+                    name="email"
+                    value={form.email}
+                    onChange={onChange}
+                    placeholder="Email"
+                    type="email"
+                    required>
 
-                <Input
-                    value={password}
-                    onChange={handlePassword}
-                    placeholder="Senha">
+                </input>
 
-                </Input>
-            </Forms>
+                <input
+                    name="password"
+                    value={form.password}
+                    onChange={onChange}
+                    type="password"
+                    placeholder="Senha"
+                    pattern={"^.{6,}"}
+                    title={"Sua senha tem que ter 6 caracteres"}
+                    required>
 
-            <button onClick={Login}>Entrar</button>
+                </input>
+
+                <button variant="contained" color="secundary" >Entrar</button>
+
+            </form>
+
+
+
         </Body>
     )
 }
