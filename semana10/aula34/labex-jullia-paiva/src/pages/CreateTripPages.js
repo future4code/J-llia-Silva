@@ -34,7 +34,7 @@ const CreateTripPages = () => {
                 <BotaoBack />
             </Titulo>
 
-            <form>
+            <form onSubmit={creatNewTrip}>
                 <input
                     name="name"
                     placeholder="Nome"
@@ -75,7 +75,7 @@ const CreateTripPages = () => {
                     onChange={onChange}
                     required
                 ></input>
-                <button variant="contained" color="primary" onClick={creatNewTrip}>Cadastrar</button>
+                <button variant="contained" color="primary">Cadastrar</button>
             </form>
 
         </Body>

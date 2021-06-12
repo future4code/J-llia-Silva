@@ -17,7 +17,6 @@ const Cards = () => {
         } else {
             history.push(`/TripDetailsPage/${infoCard}`)
         }
-        console.log("teste",infoCard)
     }
     const [trip, setTrip] = useState([])
 

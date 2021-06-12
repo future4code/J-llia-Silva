@@ -12,18 +12,19 @@ const AdminHomePage = () => {
     const goTonew = () => {
         history.push("/CreateTripPages")
     }
- 
+
     return (
         <Body>
-            <Titulo>
-                <h1>AdminHomePage</h1>
-                <BotaoBack />
-            </Titulo>
-
-            <Cards />
             
-            <Button variant="contained" color="primary" onClick={goTonew}>Criar Nova</Button>
+                <Titulo>
+                    <h1>AdminHomePage</h1>
+                    <BotaoBack />
+                </Titulo>
 
+                <Cards />
+
+                <Button variant="contained" color="primary" onClick={goTonew}>Criar Nova</Button>
+           
 
         </Body >
     )
