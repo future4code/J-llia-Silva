@@ -1,39 +1,68 @@
 import react from 'react'
+import useForm from '../Hooks/UseForm'
 import { useHistory } from 'react-router-dom'
-import { vaiPraCadastro, vaiPraLogin } from '../Routes/cordination'
+import { vaiPraLogin } from '../Routes/cordination'
+import axios from 'axios'
+import { URL_BASE } from '../Constants/URL_BASE'
+import { Main, Body } from '../Styled/styledPages'
+
+import TextField from '@material-ui/core/TextField'
 
 const FormularioCadastro = () => {
-    const history = useHistory()
 
+    const history = useHistory()
+    const [form, handleInputChange, clear] = useForm({ username: "", email: "", password: "" })
+
+    const onSubmitForm = (event) => {
+        event.preventDefault()
+    }
+    const cadastrar = () => {
+        axios.post(`URL_BASE/jullia-paiva/signup`, form)
+    }
+    console.log(form)
     return (
-        <div>
-            <form onSubmit>
-                <input
+        <Body>
+       <Main>
+       <h1>CADASTRO</h1>
+            <form onSubmit={onSubmitForm}>
+                <TextField
+                    variant="outlined"
+                    fullWidth
                     placeholder="nome"
-                    name="nome"
+                    name="username"
+                    value={form.username}
+                    onChange={handleInputChange}
                     required
                     type="name"
-                ></input>
+                ></TextField>
 
-                <input
+                <TextField
+                    variant="outlined"
+                    fullWidth
                     placeholder="email"
                     name="email"
+                    value={form.email}
+                    onChange={handleInputChange}
                     required
                     type="email"
-                ></input>
+                ></TextField>
 
-                <input
+                <TextField
                     placeholder="senha"
+                    fullWidth
                     name="senha"
+                    value={form.password}
+                    onChange={handleInputChange}
                     required
                     type="password"
-                ></input>
+                ></TextField>
 
                 <button>Entrar</button>
 
             </form>
             <button onClick={() => vaiPraLogin(history)}>Login</button>
-        </div>
+            </Main>
+        </Body>
     )
 }
 
