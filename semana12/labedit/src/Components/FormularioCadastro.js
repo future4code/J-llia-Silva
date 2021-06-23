@@ -1,12 +1,11 @@
-import react from 'react'
+
 import useForm from '../Hooks/UseForm'
 import { useHistory } from 'react-router-dom'
 import { vaiPraLogin } from '../Routes/cordination'
-import axios from 'axios'
-import { URL_BASE } from '../Constants/URL_BASE'
 import { Main, Body } from '../Styled/styledPages'
-
+import { cadastrar } from '../Services/usersRequest'
 import TextField from '@material-ui/core/TextField'
+import { Button } from '@material-ui/core'
 
 const FormularioCadastro = () => {
 
@@ -14,53 +13,59 @@ const FormularioCadastro = () => {
     const [form, handleInputChange, clear] = useForm({ username: "", email: "", password: "" })
 
     const onSubmitForm = (event) => {
+        cadastrar(form, clear, history)
         event.preventDefault()
     }
-    const cadastrar = () => {
-        axios.post(`URL_BASE/jullia-paiva/signup`, form)
-    }
-    console.log(form)
+
     return (
         <Body>
-       <Main>
-       <h1>CADASTRO</h1>
-            <form onSubmit={onSubmitForm}>
-                <TextField
-                    variant="outlined"
-                    fullWidth
-                    placeholder="nome"
-                    name="username"
-                    value={form.username}
-                    onChange={handleInputChange}
-                    required
-                    type="name"
-                ></TextField>
+            <Main>
+                <h1>CADASTRO</h1>
+                <form onSubmit={onSubmitForm}>
+                    <TextField
+                         label="Nome"
+                         type="name"
+                         name="username"
+                         value={form.username}
+                         onChange={handleInputChange}
+                         variant="outlined"
+                         
+                         fullWidth
+                         required
+                    ></TextField>
 
-                <TextField
-                    variant="outlined"
-                    fullWidth
-                    placeholder="email"
-                    name="email"
-                    value={form.email}
-                    onChange={handleInputChange}
-                    required
-                    type="email"
-                ></TextField>
+                    <TextField
+                        label="Email"
+                        type="email"
+                        name="email"
+                        value={form.email}
+                        onChange={handleInputChange}
+                        variant="outlined"
 
-                <TextField
-                    placeholder="senha"
-                    fullWidth
-                    name="senha"
-                    value={form.password}
-                    onChange={handleInputChange}
-                    required
-                    type="password"
-                ></TextField>
+                        fullWidth
+                        required
+                    ></TextField>
 
-                <button>Entrar</button>
+                    <TextField
+                       label="Senha"
+                       type="password"
+                       name="password"
+                       value={form.password}
+                       onChange={handleInputChange}
+                       variant="outlined"
 
-            </form>
-            <button onClick={() => vaiPraLogin(history)}>Login</button>
+                       fullWidth
+                       required
+                    ></TextField>
+
+                    <Button
+                        variant="contained"
+                        color="secondary"
+                        type="submit">Entrar</Button>
+
+                </form>
+
+                <button onClick={() => vaiPraLogin(history)}>Login</button>
             </Main>
         </Body>
     )

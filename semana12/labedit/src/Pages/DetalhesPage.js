@@ -1,15 +1,24 @@
-import react from 'react'
 import { useHistory } from 'react-router-dom'
 import { volta } from '../Routes/cordination'
+import Header from '../Components/Header'
+import { UseProtectAcess } from '../Hooks/UseProtectPage'
+import PostDetail from '../Components/PostDetail'
 
-const DetalhesPage = ()=>{
-    const history= useHistory()
-    return(
+
+
+const DetalhesPage = () => {
+    UseProtectAcess()
+
+    const history = useHistory()
+    return (
         <div>
-            
-            <h1>oi eu sou o Detalhes</h1>
-            <button onClick={()=>volta(history)}>Voltar</button>
+            <Header />
+        
+            <button onClick={() => volta(history)}>Voltar</button>
+            <PostDetail />
+         
         </div>
+
     )
 }
 

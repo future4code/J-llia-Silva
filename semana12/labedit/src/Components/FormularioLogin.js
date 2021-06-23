@@ -1,33 +1,23 @@
-import axios from 'axios'
-import react from 'react'
+
 import { useHistory } from 'react-router-dom'
-import { URL_BASE } from '../Constants/URL_BASE'
 import useForm from '../Hooks/UseForm'
 import { vaiPraCadastro} from '../Routes/cordination'
 import TextField from '@material-ui/core/TextField'
 import { Button } from '@material-ui/core'
 import { Main, Body } from '../Styled/styledPages'
+import { login } from '../Services/usersRequest'
 
 const FormularioLogin = () => {
+
     const history = useHistory()
     const [form, handleInputChange, clear] = useForm({ email: "", password: "" })
+
     const onSubmitForm = (event) => {
         event.preventDefault()
-        logar()
+        login(form, clear, history)
     }
-    console.log(form)
-
-    const logar = () => {
-        axios.post(`URL_BASE/jullia-paiva/login`, form)
-            .then((res) => {
-                console.log(res.data)
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-    }
-
-    return (
+    
+    return ( 
         <Body>
             <Main>
             <h1>LOGIN</h1>
@@ -60,7 +50,7 @@ const FormularioLogin = () => {
                 <Button
                 variant="contained"
                 color="secondary"
-                    type="submit">Entrar</Button>
+                type="submit">Entrar</Button>
 
             </form>
 

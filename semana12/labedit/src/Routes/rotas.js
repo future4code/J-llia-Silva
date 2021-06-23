@@ -1,4 +1,4 @@
-import react from"react";
+
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import LoginPage from "../Pages/LoginPage"
 import FeedPage from "../Pages/FeedPage"

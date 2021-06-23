@@ -1,12 +1,14 @@
-import react from 'react'
+
 import Header from '../Components/Header'
 import Post from '../Components/Post'
+import { UseProtectAcess } from '../Hooks/UseProtectPage'
 
 const FeedPage = ()=>{
+    UseProtectAcess()
+
     return(
         <div>
-            <Header/>
-            <h1>oi eu sou o Feed</h1>
+            <Header/>        
             <Post/>
         </div>
     )

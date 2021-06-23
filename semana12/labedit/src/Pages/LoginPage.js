@@ -1,7 +1,9 @@
-import react from 'react'
+
 import FormularioLogin from '../Components/FormularioLogin'
+import { UseProtectLogin } from '../Hooks/UseProtectPage'
 
 const LoginPage = ()=>{
+    UseProtectLogin()
     return(
         <div>         
             <FormularioLogin/>
