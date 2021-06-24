@@ -12,3 +12,8 @@ export const CardPost= styled.div`
     scale:2;
 }
 `
+export const Head=styled.header`
+display:flex;
+justify-content:left;
+height:10vh;
+`

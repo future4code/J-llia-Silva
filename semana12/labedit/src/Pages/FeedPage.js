@@ -1,16 +1,21 @@
 
+import FormularioPost from '../Components/FormularioPost'
 import Header from '../Components/Header'
 import Post from '../Components/Post'
 import { UseProtectAcess } from '../Hooks/UseProtectPage'
+import { BodyCenter, Main } from '../Styled/styledPages'
 
 const FeedPage = ()=>{
     UseProtectAcess()
 
     return(
-        <div>
-            <Header/>        
+        <BodyCenter>
+            <Header/>  
+            <Main> 
+                <FormularioPost/>     
             <Post/>
-        </div>
+            </Main>
+        </BodyCenter>
     )
 }
 

@@ -2,6 +2,7 @@
 import { Button } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
 import { vaiPraLogin } from '../Routes/cordination'
+import { Head } from '../Styled/styledComponentes'
 
 const Header = ()=>{
     const history= useHistory()
@@ -16,11 +17,11 @@ const Header = ()=>{
     }
 }
     return(
-        <div>     
+        <Head>     
             <Button onClick={()=>logout(history)}
             >{history.location.pathname === "/cadastro"? "Login":"Logout"}
             </Button>
-        </div>
+        </Head>
     )
 }
 

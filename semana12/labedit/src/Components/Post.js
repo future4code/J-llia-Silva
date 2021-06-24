@@ -1,26 +1,24 @@
+
+import React, { useContext } from "react";
 import { useHistory } from 'react-router-dom'
 import { vaiPraDetalhes } from '../Routes/cordination'
 import { CardPost } from '../Styled/styledComponentes'
-import useRequestData from '../Hooks/UseRequestData'
-import { URL_BASE } from '../Constants/URL_BASE'
-import FormularioComentario from '../Components/FormularioComentario'
-
-
-
+import { ContextPost } from "../Global/GlobalContext";
 
 const Post = () => {
     const history = useHistory()
-    const posts = useRequestData([], `${URL_BASE}/posts`)
+    const { posts, getPosts } = useContext(ContextPost)
 
     const onClickPost = (id) => {
-        vaiPraDetalhes(history, id)   
+        vaiPraDetalhes(history, id)
     }
 
     const postsMapeados = posts.map((post) => {
-        return <CardPost key={post.id}>
-            <h3 onClick={() => onClickPost(post.id)} >{post.username}</h3>
+        return <CardPost onClick={() => onClickPost(post.id)} key={post.id}>
+            <h3>{post.username}</h3>
+            <h5>{post.title}</h5>
             <p>{post.body}</p>
-            <FormularioComentario id={post.id}/>
+
 
         </CardPost>
     })

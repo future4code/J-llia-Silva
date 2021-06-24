@@ -3,7 +3,7 @@ import useForm from '../Hooks/UseForm'
 import { useHistory } from 'react-router-dom'
 import { vaiPraLogin } from '../Routes/cordination'
 import { Main, Body } from '../Styled/styledPages'
-import { cadastrar } from '../Services/usersRequest'
+import { cadastrar } from '../Services/acessRequest'
 import TextField from '@material-ui/core/TextField'
 import { Button } from '@material-ui/core'
 
