@@ -2,10 +2,10 @@
 import useForm from '../Hooks/UseForm'
 import { useHistory } from 'react-router-dom'
 import { vaiPraLogin } from '../Routes/cordination'
-import { Main, Body } from '../Styled/styledPages'
 import { cadastrar } from '../Services/acessRequest'
 import TextField from '@material-ui/core/TextField'
 import { Button } from '@material-ui/core'
+import { CardLogin, FormContainer } from '../Styled/styledComponents'
 
 const FormularioCadastro = () => {
 
@@ -18,9 +18,10 @@ const FormularioCadastro = () => {
     }
 
     return (
-        <Body>
-            <Main>
+        
+            <CardLogin>
                 <h1>CADASTRO</h1>
+                <FormContainer>
                 <form onSubmit={onSubmitForm}>
                     <TextField
                          label="Nome"
@@ -29,7 +30,7 @@ const FormularioCadastro = () => {
                          value={form.username}
                          onChange={handleInputChange}
                          variant="outlined"
-                         
+                         margin={"normal"}
                          fullWidth
                          required
                     ></TextField>
@@ -41,7 +42,7 @@ const FormularioCadastro = () => {
                         value={form.email}
                         onChange={handleInputChange}
                         variant="outlined"
-
+                        margin={"normal"}
                         fullWidth
                         required
                     ></TextField>
@@ -50,6 +51,7 @@ const FormularioCadastro = () => {
                        label="Senha"
                        type="password"
                        name="password"
+                       margin={"normal"}
                        value={form.password}
                        onChange={handleInputChange}
                        variant="outlined"
@@ -64,10 +66,9 @@ const FormularioCadastro = () => {
                         type="submit">Entrar</Button>
 
                 </form>
-
-                <button onClick={() => vaiPraLogin(history)}>Login</button>
-            </Main>
-        </Body>
+                </FormContainer>
+            </CardLogin>
+      
     )
 }
 

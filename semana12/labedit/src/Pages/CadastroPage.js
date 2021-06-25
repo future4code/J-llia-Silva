@@ -1,11 +1,15 @@
-import Header from '../Components/Header'
+import Header from '../Components/Header/Header'
 import FormularioCadastro from '../Components/FormularioCadastro'
+import { MainRight } from '../Styled/styledPages'
 
 const CadastroPage = () => {
     return (
         <div>
             <Header/>
-            <FormularioCadastro />
+            <MainRight>
+                 <FormularioCadastro /> 
+            </MainRight>
+          
         </div>
     )
 }
