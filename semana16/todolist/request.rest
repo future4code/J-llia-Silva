@@ -1,0 +1,28 @@
+GET http://localhost:3006/user/:id
+
+###
+POST http://localhost:3006/user
+Content-Type: application/json
+
+{
+    "name":"Júllia",
+    "nickname":"julliaip",
+    "email":"jullia@email.com"
+}
+
+###
+POST http://localhost:3006/user/edit/:id
+Content-Type: application/json
+
+###
+POST http://localhost:3006/task
+Content-Type: application/json
+
+{
+            "title":"estudar",
+            "description":"ver as aula e resolver os exercícios",
+            "deadline":"27/07/2021",
+            "authorid":"16273074398440.5235512759155823"
+}
+###
+GET http://localhost:3006/task/:id
