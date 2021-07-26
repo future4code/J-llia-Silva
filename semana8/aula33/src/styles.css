@@ -1,0 +1,9 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: grey;
+}
+
+.Card{
+box-shadow: 2px 5px 2px;
+}
